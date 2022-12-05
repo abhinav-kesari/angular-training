@@ -5,10 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ListProfileComponent } from "./profile/list-profile/list-profile.component";
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListProfileComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,15 @@
 <ng-template #errorMsg>
     <h2>Else statement of *ngIf</h2>
 </ng-template>
+
+
+<!-- ngFor  -->
+<ul>
+    <li *ngFor="let ele of contacts; index as i;first as f">
+        <div *ngIf="f">this is for {{f}}</div>
+         {{ i }} {{ ele.firstName }} {{ ele.lastName }} {{ ele.id }}
+    </li>
+</ul>
     
 
 <!-- <app-list-profile>Hello</app-list-profile> -->

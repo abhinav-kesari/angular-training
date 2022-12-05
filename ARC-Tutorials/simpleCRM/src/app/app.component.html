@@ -1,3 +1,29 @@
 <h1 class="c1">{{title}}</h1>
-<app-list-profile>Hello</app-list-profile>
+
+<!-- #ngIf -->
+<!-- <div class="bg-success " *ngIf="!show_success || show_success_or">
+    <h2>ngIf implemented successfully!!</h2>
+</div>                              -->
+
+
+<!-- ngIf Else -->
+<!-- <div class="bg-success " *ngIf="show_success; else errorMsg">
+    <h2>ngIf implemented successfully!!</h2>
+</div>
+<ng-template #errorMsg>
+    <h2>Else statement of *ngIf</h2>
+</ng-template> -->
+
+<!-- ngIf then else -->
+<div class="bg-success " *ngIf="!show_success then then_block; else errorMsg">
+</div>
+<ng-template #then_block>
+    <H2>then block executed !!</H2>
+</ng-template>
+<ng-template #errorMsg>
+    <h2>Else statement of *ngIf</h2>
+</ng-template>
+    
+
+<!-- <app-list-profile>Hello</app-list-profile> -->
 <router-outlet></router-outlet>

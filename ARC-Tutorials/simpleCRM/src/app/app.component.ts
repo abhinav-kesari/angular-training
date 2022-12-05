@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'simpleCRM';
+  show_success = false ;
+  show_success_or = true ;
 }

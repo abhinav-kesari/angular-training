@@ -49,4 +49,16 @@ export class AppComponent {
 
     colVal =2;
 
+    sayHello(){
+      console.log("hey its click event from Angular 10");
+    }
+
+    mouseHover(a: any,b: any,c: any){
+      console.log("Mouse is hovering on it!!"+a+b+c);
+    }
+
+    inputBox(){
+      console.log("focusing !!");
+    }
+
 }

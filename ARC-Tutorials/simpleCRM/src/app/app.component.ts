@@ -40,4 +40,13 @@ export class AppComponent {
   getClass(){
     return 'c1';
   }
+
+  userObject = {
+      "firstName" : "Abhinav",
+      "lastName" : "Kesari" 
+    
+    };
+
+    colVal =2;
+
 }

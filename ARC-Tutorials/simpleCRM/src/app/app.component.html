@@ -1,5 +1,23 @@
 <h1 class="c1">{{title}}</h1>
 
+
+<div [innerHTML]="userObject.firstName"></div>
+<div [innerHTML]="userObject.lastName"></div>
+
+<table [ngStyle]="{'background-color':'gray'}">
+    <tr>
+        <td>contactId</td>
+        <td>contact name</td>
+        <td>contact email</td>
+    </tr>
+    <tr>
+        <td [attr.colspan]="colVal">contactId</td>
+       
+        <td>contact email</td>
+    </tr>
+</table>
+
+
 <!-- #ngIf -->
 <!-- <div class="bg-success " *ngIf="!show_success || show_success_or">
     <h2>ngIf implemented successfully!!</h2>

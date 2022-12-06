@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ListProfileComponent } from "./profile/list-profile/list-profile.component";
 import { HighlightDirective } from './highlight.directive';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListProfileComponent,
-    HighlightDirective
+    HighlightDirective,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

@@ -42,7 +42,26 @@
     <div *ngSwitchCase="'D'">D</div>
     <div *ngSwitchDefault>E</div>
 </div>
-    
+
+<!-- ngStyle -->
+<div [ngStyle]="{'background-color':'green','color':'white'}">
+    This is ngStyle
+</div>
+
+<!-- css style -->
+<div style="background-color:'green';color:'yellow'">
+    This is inline css Style
+</div>
+
+<!-- ngStyle  dynammic-->
+<div [ngStyle]="{'background-color': styleVar,'color':'white'}">
+    This is dynammic ngStyle
+</div>
+
+<!-- ngStyle  dynammic conditional div-->
+<div [ngStyle]="{'background-color': styleVar2 === 'red'? 'red' : 'blue','color':'white'}">
+    This is conditional ngStyle div
+</div>
 
 <!-- <app-list-profile>Hello</app-list-profile> -->
 <router-outlet></router-outlet>

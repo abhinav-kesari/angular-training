@@ -28,4 +28,8 @@ export class AppComponent {
   ]
 
   superPower = 'D';//string
+
+
+  styleVar = 'red';
+  styleVar2 = 'blue';
 }

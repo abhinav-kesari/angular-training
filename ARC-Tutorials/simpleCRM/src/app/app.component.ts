@@ -32,4 +32,12 @@ export class AppComponent {
 
   styleVar = 'red';
   styleVar2 = 'blue';
+
+  styleClsProp = 'c2 c3 c1';
+
+  conditionClsProp = 'c4';
+
+  getClass(){
+    return 'c1';
+  }
 }

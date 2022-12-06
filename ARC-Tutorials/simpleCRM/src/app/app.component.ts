@@ -26,4 +26,6 @@ export class AppComponent {
       "id"        : 786
     }
   ]
+
+  superPower = 'D';//string
 }

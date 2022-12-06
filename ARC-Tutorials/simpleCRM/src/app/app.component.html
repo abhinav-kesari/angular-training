@@ -32,6 +32,16 @@
          {{ i }} {{ ele.firstName }} {{ ele.lastName }} {{ ele.id }}
     </li>
 </ul>
+
+<!-- ngSwitch -->
+<h3>Learning ngSwitch&nbsp;!!</h3>
+<div [ngSwitch]="superPower">
+    <div *ngSwitchCase="'A'">A</div>
+    <div *ngSwitchCase="'B'">B</div>
+    <div *ngSwitchCase="'C'">C</div>
+    <div *ngSwitchCase="'D'">D</div>
+    <div *ngSwitchDefault>E</div>
+</div>
     
 
 <!-- <app-list-profile>Hello</app-list-profile> -->

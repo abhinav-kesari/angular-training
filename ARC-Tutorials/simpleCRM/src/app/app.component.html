@@ -39,10 +39,21 @@
 <div>{{ currencyExample | currency }}</div>
 <div>{{ percentExample | percent }}</div>
 
+<br>
+<!-- Parameteraised Pipes -->
+<div>{{ currencyExample | currency : 'INR'  }}</div>
+<div>{{ currencyExample | currency : 'USD'  }}</div>
+<div>{{ currencyExample | currency : 'CAD'  }}</div>
+<br>
+<div >{{ dateExample | date : 'short' }}</div>
+<div >{{ dateExample | date : 'long' }}</div>
+<div >{{ dateExample | date : 'dd:MM:YYYY' }}</div>
+<div >{{ dateExample | date : 'dd-MMM-YYYY' }}</div>
+<br>
+<div>{{ percentExample | percent : '4.1-1' }}</div>
+<div>{{ jsonExample | json }}</div>
 
-<div></div>
-
-
+<br>
 
 <!-- #ngIf -->
 <!-- <div class="bg-success " *ngIf="!show_success || show_success_or">

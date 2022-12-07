@@ -75,11 +75,18 @@ export class AppComponent {
           this.node = false;
           console.log(this.node);
         }
-        
         }
 
-
+        dateExample = Date.now();
+        jsonExample = {  
+          
+          "name" : "Abhinav",
+          "id" : 1,
+          "lang" : "en"
       
+      }
+      currencyExample = 100;
+      percentExample  = 0.6723;
 }
 
 

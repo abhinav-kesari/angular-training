@@ -28,8 +28,20 @@
 <button (click)="changed()"  ngDefaultControl [(ngModel)]="node"> +  </button>
 <button (click)="unchanged()" ngDefaultControl [(ngModel)]="node"> - </button>
 
-<div *ngIf="node">{{ username  }} </div>
+<div *ngIf="node">{{ username   }} </div>
 <div >{{ node  }} </div>
+
+<!-- Built_in Pipes -->
+<div *ngIf="node">{{ username | uppercase  }} </div>
+<div *ngIf="node">{{ username | lowercase  }} </div>
+<div >{{ dateExample | date }}</div>
+<div>{{ jsonExample | json }}</div>
+<div>{{ currencyExample | currency }}</div>
+<div>{{ percentExample | percent }}</div>
+
+
+<div></div>
+
 
 
 <!-- #ngIf -->

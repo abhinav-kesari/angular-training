@@ -53,12 +53,33 @@ export class AppComponent {
       console.log("hey its click event from Angular 10");
     }
 
-    mouseHover(a: any,b: any,c: any){
+    mouseHover(a: any,b: any,c: any): void{
       console.log("Mouse is hovering on it!!"+a+b+c);
     }
 
     inputBox(){
       console.log("focusing !!");
     }
+     username = "Abhinav";
 
+     node = false;
+     changed(){
+      if(this.node == false){
+        this.node = true;
+        console.log(this.node);
+      }
+      
+      }
+      unchanged(){
+        if(this.node == true){
+          this.node = false;
+          console.log(this.node);
+        }
+        
+        }
+
+
+      
 }
+
+

@@ -24,6 +24,14 @@
 <input type="text" (focus)="inputBox()">
 
 
+<input type="text" [(ngModel)]="username" />
+<button (click)="changed()"  ngDefaultControl [(ngModel)]="node"> +  </button>
+<button (click)="unchanged()" ngDefaultControl [(ngModel)]="node"> - </button>
+
+<div *ngIf="node">{{ username  }} </div>
+<div >{{ node  }} </div>
+
+
 <!-- #ngIf -->
 <!-- <div class="bg-success " *ngIf="!show_success || show_success_or">
     <h2>ngIf implemented successfully!!</h2>

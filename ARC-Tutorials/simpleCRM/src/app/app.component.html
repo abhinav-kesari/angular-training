@@ -1,4 +1,21 @@
+<h1>1 Router-----------------------------------------------------</h1>
+
+<!-- Primary Router outlet -->
+<router-outlet></router-outlet>
+
+<h1>2 Router-----------------------------------------------------</h1>
+
+<!--  Secondry Router outlet -->
+<router-outlet name="addLoan"></router-outlet>
+
+<h1>3 Router-----------------------------------------------------</h1>
+
+<!-- secondry Router outlet -->
+<router-outlet name="editLoan"></router-outlet>
+
+
 <h1 class="c1">{{title}}</h1>
+
 
 
 <div [innerHTML]="userObject.firstName"></div>
@@ -25,10 +42,10 @@
 
 
 <input type="text" [(ngModel)]="username" />
-<button (click)="changed()"  ngDefaultControl [(ngModel)]="node"> +  </button>
+<button (click)="changed()"  ngDefaultControl [(ngModel)]="node">  +  </button>
 <button (click)="unchanged()" ngDefaultControl [(ngModel)]="node"> - </button>
 
-<div *ngIf="node">{{ username   }} </div>
+<div *ngIf="node">{{ username }} </div>
 <div >{{ node  }} </div>
 
 <!-- Built_in Pipes -->
@@ -54,6 +71,9 @@
 <div>{{ jsonExample | json }}</div>
 
 <br>
+<!-- Chaining Pipes -->
+<div >{{ dateExample | date : 'dd-MMM-YYYY' | uppercase }}</div>
+
 
 <!-- #ngIf -->
 <!-- <div class="bg-success " *ngIf="!show_success || show_success_or">
@@ -135,4 +155,4 @@
 <DIV [ngClass]="getClass()"> this is ngClass by method </DIV>
 
 <!-- <app-list-profile>Hello</app-list-profile> -->
-<router-outlet></router-outlet>
+

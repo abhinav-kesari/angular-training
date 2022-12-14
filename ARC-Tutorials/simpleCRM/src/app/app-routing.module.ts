@@ -22,24 +22,23 @@ const routes : Routes=[
    },
    {
     path : 'clients' , component : ClientsComponent
-   },
-   {
-    path : '',
-    redirectTo: 'leads',
-    pathMatch : 'full'
-   },
-   {
-    path : 'leads',
-    component: LeadsGridComponent
    }
+  //  {
+  //   path : '',
+  //   redirectTo: 'leads',
+  //   pathMatch : 'full'
+  //  },
+  //  {
+  //   path : 'leads',
+  //   component: LeadsGridComponent
+  //  }
    ,{
     path: 'search',
     component : SearchComponent
    },
-  {
-    path : '**',
-    component : PageNotFoundComponent
-  }
+
+    { path: 'payments', loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsModule) },
+  
   
 
 
@@ -72,6 +71,10 @@ const routes : Routes=[
     
 //   ]
 //   }
+{
+  path : '**',
+  component : PageNotFoundComponent
+}
   
 
 ];

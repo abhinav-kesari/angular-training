@@ -14,6 +14,7 @@ import { AddLoansComponent } from './add-loans/add-loans.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductComponent } from './product/product.component';
+import { ClientsComponent } from './clients/clients.component';
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
 
@@ -27,6 +28,7 @@ import { ProductComponent } from './product/product.component';
     LoanTypesComponent,
     AddLoansComponent,
     ProductComponent,
+    ClientsComponent,
     // P1Component,
     // P2Component
   ],

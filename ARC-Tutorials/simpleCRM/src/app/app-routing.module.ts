@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoanTypesComponent } from './loan-types/loan-types.component';
 import { AddLoansComponent } from './add-loans/add-loans.component';
 import { ProductComponent } from './product/product.component';
+import { ClientsComponent } from './clients/clients.component';
+import { LeadsGridComponent } from './leads/leads-listing/leads-grid/leads-grid.component';
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
 
@@ -16,6 +18,18 @@ const routes : Routes=[
     {
       path : 'product/:id/photo/:photoId' ,component : ProductComponent
    },
+   {
+    path : 'clients' , component : ClientsComponent
+   },
+   {
+    path : '',
+    redirectTo: 'leads',
+    pathMatch : 'full'
+   },
+   {
+    path : 'leads',
+    component: LeadsGridComponent
+   }
   
 
 

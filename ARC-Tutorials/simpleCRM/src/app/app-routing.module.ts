@@ -7,6 +7,7 @@ import { AddLoansComponent } from './add-loans/add-loans.component';
 import { ProductComponent } from './product/product.component';
 import { ClientsComponent } from './clients/clients.component';
 import { LeadsGridComponent } from './leads/leads-listing/leads-grid/leads-grid.component';
+import { SearchComponent } from './search/search.component';
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
 
@@ -29,6 +30,10 @@ const routes : Routes=[
    {
     path : 'leads',
     component: LeadsGridComponent
+   }
+   ,{
+    path: 'search',
+    component : SearchComponent
    }
   
 

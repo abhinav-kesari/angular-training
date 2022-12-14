@@ -15,6 +15,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductComponent } from './product/product.component';
 import { ClientsComponent } from './clients/clients.component';
+import { SearchComponent } from './search/search.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
 
@@ -29,6 +31,8 @@ import { ClientsComponent } from './clients/clients.component';
     AddLoansComponent,
     ProductComponent,
     ClientsComponent,
+    SearchComponent,
+    PageNotFoundComponent,
     // P1Component,
     // P2Component
   ],

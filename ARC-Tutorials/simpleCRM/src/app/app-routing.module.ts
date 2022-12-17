@@ -11,6 +11,12 @@ import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
+import { AdminComponent } from './admin/admin.component';
+import { SuperAdminGuard } from './super-admin.guard';
+import { SuperAccessGuard } from './super-access.guard';
+import { AdminManageComponent } from './admin-manage/admin-manage.component';
+import { AdminEditComponent } from './admin-edit/admin-edit.component';
+import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
 
@@ -31,6 +37,27 @@ const routes : Routes=[
     path : 'clients' ,
     component : ClientsComponent,
     canActivate : [AdminGuard , AuthGuard]
+   },
+   {
+      path : 'admin',
+      canActivate : [SuperAdminGuard],
+      children :[
+          {
+            path : '',
+            component : AdminComponent
+          },
+          { 
+             path : '',
+             canActivateChild: [SuperAccessGuard],  
+             children: [
+                  {path : 'manage',component : AdminManageComponent},
+                  {path : 'edit',  component : AdminEditComponent},
+                  {path : 'delete',component : AdminDeleteComponent}
+             ]               
+          }
+                  
+          
+       ]
    }
 
 

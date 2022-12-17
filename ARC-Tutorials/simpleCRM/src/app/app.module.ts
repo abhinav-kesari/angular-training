@@ -17,6 +17,10 @@ import { ProductComponent } from './product/product.component';
 import { ClientsComponent } from './clients/clients.component';
 import { SearchComponent } from './search/search.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminEditComponent } from './admin-edit/admin-edit.component';
+import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
+import { AdminManageComponent } from './admin-manage/admin-manage.component';
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
 
@@ -33,6 +37,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ClientsComponent,
     SearchComponent,
     PageNotFoundComponent,
+    AdminComponent,
+    AdminEditComponent,
+    AdminDeleteComponent,
+    AdminManageComponent,
     // P1Component,
     // P2Component
   ],

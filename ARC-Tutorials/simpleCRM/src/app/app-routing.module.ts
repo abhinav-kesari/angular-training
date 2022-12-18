@@ -17,6 +17,8 @@ import { SuperAccessGuard } from './super-access.guard';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
+import { PreferencesCheckGuard } from './preferences-check.guard';
+import { UnsavedGuard } from './unsaved.guard';
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
 
@@ -78,11 +80,16 @@ const routes : Routes=[
   //  }
    ,{
     path: 'search',
-    component : SearchComponent
+    component : SearchComponent,
+    canDeactivate : [UnsavedGuard]
    },
 
     { path: 'payments', loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsModule) },
-  
+
+    { path: 'preferences', 
+      canLoad : [PreferencesCheckGuard],
+      loadChildren: () => import('./preferences/preferences.module').then(m => m.PreferencesModule) 
+    },  
   
 
 

@@ -12,6 +12,9 @@ export class SearchComponent implements OnInit {
   id = 0;
   color= '';
   size = '';
+
+  isDirty = true;
+  
   constructor(private activatedRoute:ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe((param)=>{
       console.log(param);

@@ -97,8 +97,11 @@ const routes : Routes=[
     { path: 'preferences', 
       canLoad : [PreferencesCheckGuard],
       loadChildren: () => import('./preferences/preferences.module').then(m => m.PreferencesModule) 
-    },  
-  
+    },
+
+    { path: 'customers', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) },
+
+   
 
 
 

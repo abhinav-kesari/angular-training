@@ -1,0 +1,16 @@
+<p>add-customer works!</p>
+<form #addCustomerForm="ngForm" (submit)="addCustomer(addCustomerForm)">
+    <input type="text" [(ngModel)]="firstname" name="firstname">
+    <br>
+    <input type="checkbox" name="terms" [(ngModel)]="terms">Accept   
+    <br>
+    <select name="custmoerType" [(ngModel)]="customerType">
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+    <br>
+    <textarea name="addText"  [(ngModel)]="addText" cols="30" rows="10">Add Text</textarea>
+    <br>
+    <button type="submit">Add Customer</button>
+</form>
+<h1>{{ firstname }}</h1>

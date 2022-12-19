@@ -21,6 +21,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
+
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
 
@@ -41,6 +42,8 @@ import { AdminManageComponent } from './admin-manage/admin-manage.component';
     AdminEditComponent,
     AdminDeleteComponent,
     AdminManageComponent,
+  
+  
     // P1Component,
     // P2Component
   ],

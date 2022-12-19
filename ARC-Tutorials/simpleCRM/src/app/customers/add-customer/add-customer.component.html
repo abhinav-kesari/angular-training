@@ -4,7 +4,7 @@
     <br>
     <input type="checkbox" name="terms" [(ngModel)]="terms" required>Accept   
     <br>    
-    <select name="custmoerType" [(ngModel)]="customerType" >
+    <select name="customerType" [(ngModel)]="customerType" >
         <option value="1">1</option>
         <option value="2">2</option>
     </select>
@@ -12,5 +12,9 @@
     <textarea name="addText"  [(ngModel)]="addText" cols="30" rows="10">Add Text</textarea>
     <br>
     <button type="submit" [disabled]="!addCustomerForm.valid">Add Customer</button>
+    <br>
+    <button   (click)="resetForm(addCustomerForm)">Reset </button>
+    <br>
+    <button   (click)="setFormValue(addCustomerForm)">Set Form Value </button>
+    <h4>{{ firstname }}</h4>
 </form>
-<h4>{{ firstname }}</h4>

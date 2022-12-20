@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-loan-types',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoanTypesComponent implements OnInit {
 
+  addLoanTypesForm! : FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.addLoanTypesForm = new FormGroup({
+      'loanName' : new FormControl(),
+      'loanDetails': new FormControl() 
+    })
   }
+  addLoanType(){
+    console.log(this.addLoanTypesForm?.value);
+  }
+
 
 }

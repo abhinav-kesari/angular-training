@@ -1,9 +1,17 @@
 <p>loan-types works!</p>
 <form [formGroup]="addLoanTypesForm">
-    <input type="text" formControlName="loanName" >
-    <br>
-    <textarea formControlName="loanDetails"  cols="30" rows="10"></textarea>
-    <br>
-    <button type="submit" (click)="addLoanType()">Add Loan type</button>
-
+  <div class="form-group">
+    <label for="loanName">LoanName
+    </label>
+    <input type="text"  id="loanName" formControlName="loanName" />
+  </div>
+  <div class="form-group">
+    <label for="loanDetails">
+        LoanDetails
+    </label>
+    <textarea id="loanDetails" formControlName="loanDetails" cols="30" rows="10"></textarea>
+  </div>
+  <br />
+  <br />
+  <button type="submit" (click)="addLoanType()">Add Loan type</button>
 </form>

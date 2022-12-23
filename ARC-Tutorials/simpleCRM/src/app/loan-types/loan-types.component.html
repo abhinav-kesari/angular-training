@@ -1,17 +1,25 @@
 <p>loan-types works!</p>
 <form [formGroup]="addLoanTypesForm">
   <div class="form-group">
-    <label for="loanName">LoanName
+    <label for="loanName">Loan Name
     </label>
-    <input type="text"  id="loanName" formControlName="loanName" />
+    <input type="text"  id="loanName" formControlName="loanName" /><br>
+    <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('required') && addLoanTypesForm.get('loanName')?.touched">
+      loanName is required!! </span>
+      <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('minlength') && addLoanTypesForm.get('loanName')?.touched">
+        loanName is required of min of 3!! </span>
+        <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('maxlength') && addLoanTypesForm.get('loanName')?.touched">
+          loanName is required of max of 8!! </span>
   </div>
   <div class="form-group">
     <label for="loanDetails">
         LoanDetails
     </label>
     <textarea id="loanDetails" formControlName="loanDetails" cols="30" rows="10"></textarea>
+    <span class='text-danger' *ngIf="addLoanTypesForm.get('loanDetails')?.hasError('minlength') && addLoanTypesForm.get('loanDetails')?.touched">
+      loanDetails is required of min of 5!! </span>
   </div>
   <br />
   <br />
-  <button type="submit" (click)="addLoanType()">Add Loan type</button>
+  <button type="submit" (click)="addLoanType()" [disabled]="!addLoanTypesForm.valid">Add Loan type</button>
 </form>

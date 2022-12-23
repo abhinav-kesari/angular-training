@@ -3,7 +3,7 @@
   <div class="form-group">
     <label for="loanName">Loan Name
     </label>
-    <input type="text"  id="loanName" formControlName="loanName" /><br>
+    <input type="text"  id="loanName" formControlName="loanName" (keyup)="trackLoanName()" /><br>
     <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('required') && addLoanTypesForm.get('loanName')?.touched">
       loanName is required!! </span>
       <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('minlength') && addLoanTypesForm.get('loanName')?.touched">
@@ -22,4 +22,5 @@
   <br />
   <br />
   <button type="submit" (click)="addLoanType()" [disabled]="!addLoanTypesForm.valid">Add Loan type</button>
+  <button (click)="resetForm()">Reset Form</button>
 </form>

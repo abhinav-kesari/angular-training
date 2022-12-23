@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { data } from 'cypress/types/jquery';
-import { elementAt } from 'rxjs';
+import { elementAt, map } from 'rxjs';
 
 @Component({
   selector: 'app-loan-types',
@@ -13,8 +14,29 @@ export class LoanTypesComponent implements OnInit {
   addLoanTypesForm! : FormGroup;
 
   constructor(private fb : FormBuilder) { }
+  trackLoanName() {
+    //console.log("ON CHANGE!!");
+    /* this.addLoanTypesForm.valueChanges.subscribe((data) =>{
+      console.log(data);
+    } ) */
+
+    this.addLoanTypesForm.get('loanName')?.valueChanges.subscribe((data) =>{
+      console.log(data);
+    } )
+  }
+ 
+
+  
 
   ngOnInit(): void {
+    
+    /* this.addLoanTypesForm.get('loanName')?.valueChanges.subscribe(data=>{
+      console.log(data);
+    }) */
+
+   /*  this.addLoanTypesForm.get('loanName')?.valueChanges.pipe(map(data =>{
+      console.log(data);
+    })) */
 
    /*  this.addLoanTypesForm = new FormGroup({
       'loanName' : new FormControl(),
@@ -37,14 +59,14 @@ export class LoanTypesComponent implements OnInit {
     })
    //  this.addLoanTypesForm.setValue(this.userData);
   // this.addLoanTypesForm.patchValue(this.userData);
-  } 
+} 
 
   /* userData = {
     'loanName' : 'Abhinav',
     'loanDetails' : ' object method!'
   } */
 
-  addLoanType(){
+addLoanType(){
     console.log(this.addLoanTypesForm.valid);
     console.log(this.addLoanTypesForm.invalid);
     console.log(this.addLoanTypesForm.pending);
@@ -59,5 +81,9 @@ export class LoanTypesComponent implements OnInit {
 
   }
 
-
+  resetForm(){
+    this.addLoanTypesForm.reset();
+  }
 }
+
+   

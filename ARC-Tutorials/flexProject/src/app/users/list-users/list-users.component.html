@@ -1,0 +1,8 @@
+<p>list-users works!</p>
+<app-filter-users  [channelName]="cName"  [tax]="taxVal" (updateUsersFromChild)="users($event)">
+</app-filter-users>
+<h3>Data- {{ user | json  }}</h3>
+
+<h3>Data Coming from services - </h3>
+    
+    {{ userData | json  }}

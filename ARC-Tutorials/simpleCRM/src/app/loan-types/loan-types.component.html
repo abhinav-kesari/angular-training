@@ -1,26 +1,73 @@
 <p>loan-types works!</p>
 <form [formGroup]="addLoanTypesForm">
-  <div class="form-group">
-    <label for="loanName">Loan Name
-    </label>
-    <input type="text"  id="loanName" formControlName="loanName" (keyup)="trackLoanName()" /><br>
-    <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('required') && addLoanTypesForm.get('loanName')?.touched">
-      loanName is required!! </span>
-      <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('minlength') && addLoanTypesForm.get('loanName')?.touched">
-        loanName is required of min of 3!! </span>
-        <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('maxlength') && addLoanTypesForm.get('loanName')?.touched">
-          loanName is required of max of 8!! </span>
-  </div>
-  <div class="form-group">
-    <label for="loanDetails">
-        LoanDetails
-    </label>
-    <textarea id="loanDetails" formControlName="loanDetails" cols="30" rows="10"></textarea>
-    <span class='text-danger' *ngIf="addLoanTypesForm.get('loanDetails')?.hasError('minlength') && addLoanTypesForm.get('loanDetails')?.touched">
-      loanDetails is required of min of 5!! </span>
-  </div>
+  <table>
+    <tr>
+      <div class="form-group">
+        <label for="loanName">Loan Name
+        </label>
+        <input type="text"  id="loanName" formControlName="loanName" (keyup)="trackLoanName()" /><br>
+        <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('required') && addLoanTypesForm.get('loanName')?.touched">
+          loanName is required!! </span>
+          <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('minlength') && addLoanTypesForm.get('loanName')?.touched">
+            loanName is required of min of 3!! </span>
+            <span class='text-danger' *ngIf="addLoanTypesForm.get('loanName')?.hasError('maxlength') && addLoanTypesForm.get('loanName')?.touched">
+              loanName is required of max of 8!! </span>
+      </div>
+    </tr>
+    <tr>  
+      <div class="form-group">
+        <label for="loanDetails">
+            LoanDetails
+        </label>
+        <textarea id="loanDetails" formControlName="loanDetails" cols="30" rows="10"></textarea>
+        <br>
+        <span class='text-danger' *ngIf="addLoanTypesForm.get('loanDetails')?.hasError('minlength') && addLoanTypesForm.get('loanDetails')?.touched">
+          loanDetails is required of min of 5!! </span>
+      </div>
+    </tr>  
+      <br />
+    <tr>  
+      <div class="form-group">
+        <label for="loanDetails2">
+            LoanDetails2
+        </label>
+        <textarea id="loanDetails2" formControlName="loanDetails2" cols="30" rows="10"></textarea>
+        <br>
+        <span class='text-danger' *ngIf="addLoanTypesForm.get('loanDetails2')?.hasError('minlength') && addLoanTypesForm.get('loanDetails2')?.touched">
+          loanDetails2  is required of min of 5!! </span>
+      </div>
+    </tr>  
   <br />
-  <br />
+    <!-- <tr>
+      <div class="form-group" formArrayName="users">
+          <label for="users">Users-</label>
+           <div *ngFor="let control of addLoanTypesForm.controls.users['controls'];let i= index">
+              <input type="text" [formArrayName]="i">
+          </div>
+      </div>
+    </tr> -->
+
+    <tr>
+      <div class="form-group" formArrayName="users">
+          <label for="users">Users-</label>
+           <!-- <div *ngFor="let control of addLoanTypesForm.controls.users.['controls'];let i= index;"[formGroupName]="i">
+          -->
+          <!-- <div>
+            <input type="text"  formArrayName="name">
+            <input type="text"  formArrayName="age">
+            <input type="text"  formArrayName="dep">
+          </div> -->
+      </div>
+    </tr>
+
+
+
+
+
+
   <button type="submit" (click)="addLoanType()" [disabled]="!addLoanTypesForm.valid">Add Loan type</button>
   <button (click)="resetForm()">Reset Form</button>
+  <!-- <button (click)="addForm()">Add Form</button> -->
+ 
+</table>
 </form>

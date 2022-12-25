@@ -1,6 +1,6 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { data } from 'cypress/types/jquery';
 import { elementAt, map } from 'rxjs';
 
@@ -14,27 +14,37 @@ export class LoanTypesComponent implements OnInit {
   addLoanTypesForm! : FormGroup;
 
   constructor(private fb : FormBuilder) { }
+  
   trackLoanName() {
     //console.log("ON CHANGE!!");
     /* this.addLoanTypesForm.valueChanges.subscribe((data) =>{
       console.log(data);
     } ) */
 
-    this.addLoanTypesForm.get('loanName')?.valueChanges.subscribe((data) =>{
+    /* this.addLoanTypesForm.get('loanName')?.valueChanges.subscribe((data) =>{
       console.log(data);
-    } )
+    } ) */
   }
- 
+  
+
 
   
 
   ngOnInit(): void {
-    
+ 
+    /* let users = new FormArray([
+      new FormControl('ARC'),
+      new FormControl('Tutorials')
+    ]) */
+
+    /* console.log(users);
+    console.log(users.value); */
+
     /* this.addLoanTypesForm.get('loanName')?.valueChanges.subscribe(data=>{
       console.log(data);
     }) */
-
-   /*  this.addLoanTypesForm.get('loanName')?.valueChanges.pipe(map(data =>{
+/* 
+    this.addLoanTypesForm.get('loanName')?.valueChanges.pipe(map(data =>{
       console.log(data);
     })) */
 
@@ -55,10 +65,47 @@ export class LoanTypesComponent implements OnInit {
         Validators.minLength(5),
         Validators.maxLength(22)
 
-      ])) 
+      ])) ,
+      'loanDetails2': new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(22)
+
+      ])) ,
+      /* 'users' : new FormArray([
+        new FormControl('ARC'),
+        new FormControl('Tutorials')
+      ]) */
+
+      'users' : new FormArray([
+        this.fb.group({
+            'name' : new FormControl(''),
+            'age'  : new FormControl(''),
+            'dep'  : new FormControl('')
+
+        })
+      ])
+
+        
+
     })
    //  this.addLoanTypesForm.setValue(this.userData);
   // this.addLoanTypesForm.patchValue(this.userData);
+
+  this.addLoanTypesForm.statusChanges.subscribe((data) =>{
+    console.log(data);
+  } )
+
+  this.addLoanTypesForm.get('loanName')?.statusChanges.subscribe((data) =>{
+    console.log(data);
+  } )
+
+ 
+
+ 
+
+
+
 } 
 
   /* userData = {
@@ -84,6 +131,22 @@ addLoanType(){
   resetForm(){
     this.addLoanTypesForm.reset();
   }
+
+  get users():FormArray{
+    return this.addLoanTypesForm.get('users') as FormArray;
+  }
+
+  // addForm(){
+  //   let users = this.addLoanTypesForm.get('users') as FormArray;
+  //   let newusers = this.fb.group({
+  //     'name' : '',
+  //      'age' : '',
+  //      'dep' : ''
+  //   })
+
+  //  // newusers.push(users);
+  //    console.log(this.addLoanTypesForm.get('users') as FormArray);
+  // }
 }
 
-   
+

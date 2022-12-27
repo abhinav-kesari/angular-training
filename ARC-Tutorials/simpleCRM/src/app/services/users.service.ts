@@ -16,12 +16,30 @@ export class UsersService {
 
   constructor(private http:HttpClient) { }
 
-  getUsers(): Observable<User>{
+  //Post Method
+  addusers(body: any): Observable<User>{
+    
+    // const postBody = {
+    //   title : body.,
+    //   body : body.userDetails
+    // }
+    
+    const headerPost =  new HttpHeaders({
+      'authenticationToken' : '1234511'
+    });
 
+    const paramsPost = new HttpParams()
+    .set('USEROLE','ADMIN');
+    
+
+    return this.http.post<User>('https://jsonplaceholder.typicode.com/users', body,{headers:headerPost,params:paramsPost})
+
+  }
+
+  getUsers(): Observable<User>{
     const header =  new HttpHeaders({
       'content-type': 'application/json' ,
       'authenticationToken' : '12345'
-
     });
 
     const params1 = new HttpParams()
@@ -37,4 +55,9 @@ export class UsersService {
     ]
     return userData; */
   }
+  
+
+
+
+
 }

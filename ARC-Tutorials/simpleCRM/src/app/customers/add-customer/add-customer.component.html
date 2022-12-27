@@ -18,3 +18,5 @@
     <button   (click)="setFormValue(addCustomerForm)">Set Form Value </button>
     <h4>{{ firstname }}</h4>
 </form>
+
+<div  *ngIf="isUserAdded" class="bg-success">User Added Successfully!!</div>

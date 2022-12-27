@@ -17,6 +17,8 @@ export class CustomersComponent implements OnInit {
    // this.users = this.usersService.getUsers();
      this.usersService.getUsers().subscribe(data=>{
       this.users = data;
+     }, (err) => {
+      console.log("Error in User Get method"+ err);
      })
     
   }

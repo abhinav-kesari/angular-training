@@ -16,6 +16,27 @@ export class UsersService {
 
   constructor(private http:HttpClient) { }
 
+
+  //Update Users
+  updateUsers(){
+    const putBody = {
+      userId : 1,
+      name : 'ARC Tutorials PUT oprations'
+    }
+
+    const headerPut =  new HttpHeaders({
+      'authenticationToken' : '1234511'
+    });
+
+    const paramsPut = new HttpParams()
+    .set('USEROLE','ADMIN');
+    this.http.put('https://jsonplaceholder.typicode.com/users/1', putBody,{ headers: headerPut,params:paramsPut}).subscribe(data=>{
+      console.log(data);
+    },err =>{
+      console.log("Unable to put req"+ err);
+    });
+  }
+
   //Post Method
   addusers(body: any): Observable<User>{
     
@@ -42,7 +63,7 @@ export class UsersService {
       'authenticationToken' : '12345'
     });
 
-    
+
     const params1 = new HttpParams()
     .set('pageNum','10')
     .set('pageSize','100'); 

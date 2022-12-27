@@ -16,6 +16,9 @@ export class UsersService {
 
   constructor(private http:HttpClient) { }
 
+  deleteUser(id: Number){
+     return this.http.delete('https://jsonplaceholder.typicode.com/users/'+id);
+  }
 
   //Update Users
   updateUsers(){

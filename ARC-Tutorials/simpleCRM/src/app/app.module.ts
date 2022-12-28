@@ -22,7 +22,8 @@ import { AdminEditComponent } from './admin-edit/admin-edit.component';
 import { AdminDeleteComponent } from './admin-delete/admin-delete.component';
 import { AdminManageComponent } from './admin-manage/admin-manage.component';
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { CommonInterceptor } from './common.interceptor';
 
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
@@ -58,7 +59,8 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy}
+    { provide: LocationStrategy, useClass: HashLocationStrategy},
+    { provide : HTTP_INTERCEPTORS, useClass : CommonInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

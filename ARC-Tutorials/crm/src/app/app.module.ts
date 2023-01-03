@@ -11,11 +11,14 @@ import { RolesModule } from "../app/roles/roles.module";
 
 
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { HttpClientModule } from '@angular/common/http';
+import { ContentProjectionComponent } from './content-projection/content-projection.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ContentProjectionComponent,
    
   ],
   imports: [
@@ -25,7 +28,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     LayoutModule,
     UsersModule,
     RolesModule,
-    MatSidenavModule
+    MatSidenavModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

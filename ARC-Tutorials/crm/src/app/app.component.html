@@ -1,13 +1,24 @@
 <app-header></app-header>
 
 <mat-drawer-container class="app-container">
-
+  
   <mat-drawer mode="side" opened>
     <app-sidebar></app-sidebar>
   </mat-drawer>
-
   <mat-drawer-content>
     <router-outlet></router-outlet>
+    <app-content-projection>
+      single Slot - This is from App Component
+      <p role>
+        multiple slot -This is from App Component
+      </p>
+
+      <ng-template #admin>
+        Conditional slot - this is from App Admin Component
+      </ng-template>
+
+    </app-content-projection>
+
   </mat-drawer-content>
 
 </mat-drawer-container>

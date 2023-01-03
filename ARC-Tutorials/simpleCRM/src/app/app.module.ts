@@ -24,6 +24,7 @@ import { AdminManageComponent } from './admin-manage/admin-manage.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { CommonInterceptor } from './common.interceptor';
+import { ViewUsersComponent } from './users/view-users/view-users.component';
 
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
@@ -45,6 +46,7 @@ import { CommonInterceptor } from './common.interceptor';
     AdminEditComponent,
     AdminDeleteComponent,
     AdminManageComponent,
+    ViewUsersComponent,
     
   
     // P1Component,

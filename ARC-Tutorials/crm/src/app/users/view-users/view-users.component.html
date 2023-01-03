@@ -1,0 +1,18 @@
+<p>view-users works!</p>
+
+<h4>User Status : {{userstatus }}</h4>
+
+<li *ngFor="let names of userName$">
+    {{ names.name }}
+</li>
+
+<div >{{ userPromise.name }}</div>
+
+<ng-container *ngIf="isRole">
+<div *ngIf="adminRole; else notAdmin;"  >
+    To check ng-container
+</div>
+<ng-template #notAdmin>
+    to test ng-template
+</ng-template>
+</ng-container>

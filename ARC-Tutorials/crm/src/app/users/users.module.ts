@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListUsersComponent } from './list-users/list-users.component';
+import { ViewUsersComponent } from './view-users/view-users.component';
 
 
 
 @NgModule({
   declarations: [
-    ListUsersComponent
+    ListUsersComponent,
+    ViewUsersComponent
   ],
   imports: [
     CommonModule

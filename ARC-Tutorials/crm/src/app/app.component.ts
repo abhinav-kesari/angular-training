@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ContentProjectionComponent } from './content-projection/content-projection.component';
 
 @Component({
@@ -12,11 +12,19 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('lol')
   views!: ElementRef;
 
-  @ViewChild(ContentProjectionComponent)
-  content! : ContentProjectionComponent;
+ /*  @ViewChild(ContentProjectionComponent)
+  content! : ContentProjectionComponent; */
+
+  @ViewChildren(ContentProjectionComponent)
+  contentList! : QueryList<ContentProjectionComponent>;
+  
   
   ngAfterViewInit(): void {
-  this.content.isUserSuperAdmin =true;
+  //this.content.isUserSuperAdmin =true;
+
+  console.log(this.contentList.length);
+  console.log(this.contentList);
+  
   console.log(this.views.nativeElement.innerHTML);
   }
 }

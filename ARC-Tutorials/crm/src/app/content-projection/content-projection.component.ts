@@ -1,4 +1,4 @@
-import { Component, ContentChild, OnInit, TemplateRef } from '@angular/core';
+import { AfterViewInit, Component, ContentChild, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-content-projection',
@@ -10,9 +10,13 @@ export class ContentProjectionComponent implements OnInit {
   @ContentChild('admin')
   adminTemp!: TemplateRef<any>;
 
-  constructor() { }
+  isUserSuperAdmin!: boolean;
 
+  constructor() { }
+  
   ngOnInit(): void {
   }
+  
+
 
 }

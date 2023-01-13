@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { ContactsService } from "../contacts.service";
 
@@ -17,9 +18,23 @@ export class ViewUsersComponent implements OnInit {
   adminRole : boolean =true;
   isRole : boolean = true;
 
-  constructor() { }
+  //view user/:id
+  viewData$ : any;
+  id : any;
+
+  constructor(private contactService: ContactsService,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.activatedRoute.params.subscribe((data1: any) =>{
+      this.id = data1.id;
+    })
+
+    this.contactService.viewUsers(this.id).subscribe(data =>{
+       this.viewData$ = data;
+       console.log(data);
+    })
+
 
 
     //Example1

@@ -13,8 +13,8 @@ export class ContactsService {
     return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 
-  viewUsers(){
-    return this.http.get('https://jsonplaceholder.typicode.com/users/1');         
+  viewUsers(id : string):Observable <object>{
+    return this.http.get('https://jsonplaceholder.typicode.com/users/' + id);         
   }
 
 

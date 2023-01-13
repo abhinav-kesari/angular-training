@@ -24,7 +24,7 @@ export class AddCustomerComponent implements OnInit {
   
   
   addCustomer(formValue: NgForm){
-   // console.log(formValue.value); 
+    console.log(formValue.value); 
     
     const postBody = {
       title : formValue.value.firstname,

@@ -57,6 +57,10 @@ export class AppComponent {
       console.log("Mouse is hovering on it!!"+a+b+c);
     }
 
+    OnClick($event : any){
+      console.log("Click event.target.value")
+      console.log($event.target.value)
+    }
     inputBox(){
       console.log("focusing !!");
     }
@@ -64,10 +68,11 @@ export class AppComponent {
 
      node = false;
      changed(){
-      if(this.node == false){
-        this.node = true;
-        console.log(this.node);
-      }
+      this.node= !this.node;
+      // if(this.node == false){
+      //   this.node = true;
+      //   console.log(this.node);
+      // }
       
       }
       unchanged(){

@@ -26,7 +26,7 @@ import { ContentProjectionComponent } from './content-projection/content-project
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    UsersModule,
+    
     RolesModule,
     MatSidenavModule,
     HttpClientModule

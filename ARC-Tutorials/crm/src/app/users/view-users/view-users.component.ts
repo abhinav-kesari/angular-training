@@ -17,7 +17,7 @@ export class ViewUsersComponent implements OnInit {
   adminRole : boolean =true;
   isRole : boolean = true;
 
-  constructor(private contactsService:ContactsService) { }
+  constructor() { }
 
   ngOnInit(): void {
 
@@ -46,20 +46,20 @@ export class ViewUsersComponent implements OnInit {
     });
 
     //Example3
-    this.contactsService.getusers().subscribe(data =>{
-      this.userName$ = data;
-    })
+    // this.contactsService.getusers().subscribe(data =>{
+    //   this.userName$ = data;
+    // })
 
-    this.contactsService.viewUsers().toPromise()
-    .then( res =>{
-      this.userPromise= res;
-    })
-    .catch(()=>{
-      console.error();
-    })
-    .finally(()=>{
-      console.log("Saved data!!")
-    })
+    // this.contactsService.viewUsers().toPromise()
+    // .then( res =>{
+    //   this.userPromise= res;
+    // })
+    // .catch(()=>{
+    //   console.error();
+    // })
+    // .finally(()=>{
+    //   console.log("Saved data!!")
+    // })
     
   }
 

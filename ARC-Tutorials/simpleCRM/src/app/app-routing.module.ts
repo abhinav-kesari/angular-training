@@ -23,52 +23,44 @@ import { ResolverGuard } from './resolver.guard';
 // import { P1Component } from './p1/p1.component';
 // import { P2Component } from './p2/p2.component';
 
-const routes : Routes=[
-
-    {
-        path : 'product/:id' ,component : ProductComponent
-    },
-    {
-      path : 'product/:id/photo/:photoId' ,component : ProductComponent
-   },
+const routes: Routes = [
+  {
+    path: 'product/:id',
+    component: ProductComponent,
+  },
+  {
+    path: 'product/:id/photo/:photoId',
+    component: ProductComponent,
+  },
   //  {
   //   path : 'clients' ,
   //   component : ClientsComponent,
   //   canActivate : [AuthGuard]
   //  }
   {
-    path : 'clients' ,
-    component : ClientsComponent,
-    canActivate : [AdminGuard , AuthGuard]
-   },
-   {
-      path : 'admin',
-      canActivate : [SuperAdminGuard],
-      children :[
-          {
-            path : '',
-            component : AdminComponent
-          },
-          { 
-             path : '',
-             canActivateChild: [SuperAccessGuard],  
-             children: [
-                  {path : 'manage',component : AdminManageComponent},
-                  {path : 'edit',  component : AdminEditComponent},
-                  {path : 'delete',component : AdminDeleteComponent}
-             ]               
-          }
-                  
-          
-       ]
-   }
-
-
-
-
-
-
-
+    path: 'clients',
+    component: ClientsComponent,
+    canActivate: [AdminGuard, AuthGuard],
+  },
+  {
+    path: 'admin',
+    canActivate: [SuperAdminGuard],
+    children: [
+      {
+        path: '',
+        component: AdminComponent,
+      },
+      {
+        path: '',
+        canActivateChild: [SuperAccessGuard],
+        children: [
+          { path: 'manage', component: AdminManageComponent },
+          { path: 'edit', component: AdminEditComponent },
+          { path: 'delete', component: AdminDeleteComponent },
+        ],
+      },
+    ],
+  },
 
   //  {
   //   path : '',
@@ -78,37 +70,45 @@ const routes : Routes=[
   //  {
   //   path : 'leads',
   //   component: LeadsGridComponent
-  //  }
-   ,{
+  //  },
+  {
     path: 'search',
-    component : SearchComponent,
-    canDeactivate : [UnsavedGuard]
-   },
-   {
-         path : 'leads',
-         component: LeadsGridComponent,
-         resolve: {
-          data : ResolverGuard
-         }
-   },
-
-    { path: 'payments', loadChildren: () => import('./payments/payments.module').then(m => m.PaymentsModule) },
-
-    { path: 'preferences', 
-      canLoad : [PreferencesCheckGuard],
-      loadChildren: () => import('./preferences/preferences.module').then(m => m.PreferencesModule) 
+    component: SearchComponent,
+    canDeactivate: [UnsavedGuard],
+  },
+  {
+    path: 'leads',
+    component: LeadsGridComponent,
+    resolve: {
+      data: ResolverGuard,
     },
+  },
 
-    { path: 'customers', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule) },
+  {
+    path: 'payments',
+    loadChildren: () =>
+      import('./payments/payments.module').then((m) => m.PaymentsModule),
+  },
 
-    {
-      path : 'loan-types',
-      component : LoanTypesComponent
-    },
-   
+  {
+    path: 'preferences',
+    canLoad: [PreferencesCheckGuard],
+    loadChildren: () =>
+      import('./preferences/preferences.module').then(
+        (m) => m.PreferencesModule
+      ),
+  },
 
+  {
+    path: 'customers',
+    loadChildren: () =>
+      import('./customers/customers.module').then((m) => m.CustomersModule),
+  },
 
-
+  {
+    path: 'loan-types',
+    component: LoanTypesComponent,
+  },
 
   // {
   //   path : 'product/1' ,component : P1Component
@@ -117,40 +117,39 @@ const routes : Routes=[
   //   path : 'product/2' ,component : P2Component
   // }
 
+  //   {
+  //     path : 'loans',
+  //     component : LoansComponent
+  //   },
+  //   {
+  //     path : 'loan-type',
+  //  //   component : LoanTypesComponent,
+  //     children : [
+  //         {
+  //            path : 'add-new-Loan',
+  //            redirectTo : 'addLoan'
+  //         },
+  //         {
+  //           path : 'addLoan',
+  //           component : AddLoansComponent
+  //        }
 
-//   {
-//     path : 'loans',
-//     component : LoansComponent
-//   },
-//   {
-//     path : 'loan-type',
-//  //   component : LoanTypesComponent,
-//     children : [
-//         {
-//            path : 'add-new-Loan',
-//            redirectTo : 'addLoan'
-//         },
-//         {
-//           path : 'addLoan',
-//           component : AddLoansComponent
-//        }
-    
-//   ]
-//   }
-{
-  path : '**',
-  component : PageNotFoundComponent
-}
-  
-
+  //   ]
+  //   }
+  {
+              path : 'addLoan',
+              component : AddLoansComponent
+ },          
+           
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports : [RouterModule]
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

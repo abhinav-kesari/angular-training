@@ -32,7 +32,7 @@ export class ViewUsersComponent implements OnInit {
 
     this.contactService.viewUsers(this.id).subscribe(data =>{
        this.viewData$ = data;
-       console.log(data);
+  /*     //  console.log(data); */
     })
 
 
@@ -40,7 +40,7 @@ export class ViewUsersComponent implements OnInit {
     //Example1
     this.users = ['Ram','Shiva','Abhinav'];
     this.constacts$ = of(this.users);
-    console.log(this.constacts$);
+    
 
     //Example2
     new Observable(observer => {

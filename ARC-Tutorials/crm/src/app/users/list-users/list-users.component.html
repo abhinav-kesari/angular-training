@@ -1,9 +1,19 @@
-<h1 style="margin:10px;">Total List Users - {{ userName$.length }}</h1>
-<mat-list role="list" *ngFor="let names of userName$">
-    <mat-list-item role="listitem">
-         <span class="username">{{ names.name }} </span>  
-         | <a [routerLink]="['view',names.id]">View</a>
-         | <a [routerLink]="['delete',names.id]">Delete</a>
-         | <a [routerLink]="['edit',names.id]">Edit</a>
-    </mat-list-item>  
-</mat-list>
+<mat-card>
+  
+    <mat-card-title>Users</mat-card-title>
+    <mat-card-subtitle *ngIf="userName$?.length">  
+        Total List Users - {{ userName$.length }}
+    </mat-card-subtitle>
+</mat-card>
+
+<mat-card *ngFor="let names of userName$">
+    <mat-card-header>
+      <mat-card-title>{{ names.name }}</mat-card-title>
+      <mat-card-subtitle>{{ names.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-button><a [routerLink]="['view', names.id]">View</a></button>
+      <button mat-button><a [routerLink]="['delete', names.id]">Delete</a></button>
+      <button mat-button> <a [routerLink]="['edit', names.id]">Edit</a></button>
+    </mat-card-actions>
+</mat-card>

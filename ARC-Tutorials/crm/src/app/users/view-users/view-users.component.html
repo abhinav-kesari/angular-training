@@ -1,4 +1,4 @@
- <p>view-users works!</p>
+
     <!--
 <h4>User Status : {{userstatus }}</h4> -->
 
@@ -16,5 +16,8 @@
     to test ng-template
 </ng-template>
 </ng-container> -->
+<mat-card>
+    <mat-card-title>{{ viewData$.name}}</mat-card-title>
+    <mat-card-content>{{ viewData$.email }}</mat-card-content>
+</mat-card>
 
-<h2> View User - {{ viewData$  | json}}</h2>

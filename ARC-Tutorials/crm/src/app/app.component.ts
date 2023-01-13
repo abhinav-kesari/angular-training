@@ -15,15 +15,15 @@ export class AppComponent implements AfterViewInit {
  /*  @ViewChild(ContentProjectionComponent)
   content! : ContentProjectionComponent; */
 
-  @ViewChildren(ContentProjectionComponent)
-  contentList! : QueryList<ContentProjectionComponent>;
+ /*  @ViewChildren(ContentProjectionComponent)
+  contentList! : QueryList<ContentProjectionComponent>; */
   
   
   ngAfterViewInit(): void {
   //this.content.isUserSuperAdmin =true;
-
+/* 
   console.log(this.contentList.length);
-  console.log(this.contentList);
+  console.log(this.contentList); */
   
   // console.log(this.views.nativeElement.innerHTML);
   }

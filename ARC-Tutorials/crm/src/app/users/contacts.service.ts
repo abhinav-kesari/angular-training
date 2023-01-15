@@ -21,4 +21,8 @@ export class ContactsService {
     return this.http.post('https://jsonplaceholder.typicode.com/users',objAdd)
   }
 
+  deleteUser(id :any){
+    return this.http.delete('https://jsonplaceholder.typicode.com/users/' + id);
+  }
+
 }

@@ -13,6 +13,8 @@ import { RolesModule } from "../app/roles/roles.module";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HttpClientModule } from '@angular/common/http';
 import { ContentProjectionComponent } from './content-projection/content-projection.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -26,12 +28,14 @@ import { ContentProjectionComponent } from './content-projection/content-project
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    
+    ReactiveFormsModule,
     RolesModule,
     MatSidenavModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2000}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

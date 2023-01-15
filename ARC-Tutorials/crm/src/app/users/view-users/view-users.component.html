@@ -16,7 +16,7 @@
     to test ng-template
 </ng-template>
 </ng-container> -->
-<mat-card>
+<mat-card *ngIf="viewData$">
     <mat-card-title>{{ viewData$.name}}</mat-card-title>
     <mat-card-content>{{ viewData$.email }}</mat-card-content>
 </mat-card>

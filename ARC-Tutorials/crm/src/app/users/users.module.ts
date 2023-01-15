@@ -8,7 +8,10 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -23,7 +26,14 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     MatListModule,
     MatCardModule,
-    RouterModule
-  ],exports:[ListUsersComponent]
+    RouterModule,
+    MatInputModule ,
+    MatButtonModule ,
+    ReactiveFormsModule,
+    MatSnackBarModule
+  ],exports:[ListUsersComponent],
+  providers:[
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2000}}
+  ]
 })
 export class UsersModule { }

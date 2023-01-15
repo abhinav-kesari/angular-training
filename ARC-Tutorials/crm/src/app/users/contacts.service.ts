@@ -16,6 +16,9 @@ export class ContactsService {
   viewUsers(id : string):Observable <object>{
     return this.http.get('https://jsonplaceholder.typicode.com/users/' + id);         
   }
-
+  
+  addUser(objAdd :any){
+    return this.http.post('https://jsonplaceholder.typicode.com/users',objAdd)
+  }
 
 }

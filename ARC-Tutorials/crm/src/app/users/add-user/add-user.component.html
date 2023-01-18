@@ -6,19 +6,53 @@
                 <mat-label>Username</mat-label>
                 <input matInput placeholder="username" formControlName="username"  />
             </mat-form-field>
+            <mat-error *ngIf="addUserForm.controls['username'].errors &&
+                              addUserForm.controls['username'].hasError('required')">
+                username is required!!
+            </mat-error>
+            <mat-error *ngIf="addUserForm.controls['username'].errors &&
+            addUserForm.controls['username'].hasError('minlength')">
+                minlength length must be 2!!
+            </mat-error>
+            <mat-error *ngIf="addUserForm.controls['username'].errors &&
+            addUserForm.controls['username'].hasError('maxlength')">
+                maxlength length must be 15 !!
+            </mat-error>
+
             
             <mat-form-field class="example-full-width">
                 <mat-label>Email</mat-label>
                 <input matInput placeholder="email"  formControlName="email"/>
             </mat-form-field>
+            <mat-error *ngIf="addUserForm.controls['email'].errors && 
+                              addUserForm.controls['email'].hasError('required')">
+                Email is required!!
+            </mat-error>
+            <mat-error *ngIf="addUserForm.controls['email'].errors &&
+            addUserForm.controls['email'].hasError('minlength')">
+               Email not valid!!  
+            </mat-error>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Phone Number</mat-label>
                 <input matInput placeholder="phone number" formControlName="phone" />
-            </mat-form-field>
-
-            <button mat-stroked-button>Submit</button>
+            </mat-form-field> 
+            <mat-error *ngIf="addUserForm.controls['phone'].errors && 
+                              addUserForm.controls['phone'].hasError('required')">
+                phone is required!!
+            </mat-error>
+            <mat-error *ngIf="addUserForm.controls['phone'].errors &&
+            addUserForm.controls['phone'].hasError('minlength')">
+                minlength length must be 10!!
+            </mat-error>
+            <mat-error *ngIf="addUserForm.controls['phone'].errors &&
+            addUserForm.controls['phone'].hasError('maxlength')">
+                maxlength length must be 11 !!
+            </mat-error>
             
+
+            <button mat-stroked-button [disabled]="!addUserForm.valid">Submit</button>
+  
     </form>
   </mat-card-content>
 </mat-card>

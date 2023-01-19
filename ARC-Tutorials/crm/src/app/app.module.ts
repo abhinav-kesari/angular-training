@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContentProjectionComponent } from './content-projection/content-projection.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+//import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
     RolesModule,
     MatSidenavModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+  //  MatTableModule
   ],
   providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2000}}
   ],

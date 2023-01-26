@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContentProjectionComponent } from './content-projection/content-projection.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { RxjsLearningComponent } from './rxjs-learning/rxjs-learning.component';
 //import { MatTableModule } from '@angular/material/table';
 
 
@@ -22,6 +23,7 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
   declarations: [
     AppComponent,
     ContentProjectionComponent,
+    RxjsLearningComponent,
    
   ],
   imports: [

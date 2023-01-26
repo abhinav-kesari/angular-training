@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListRolesComponent } from './roles/list-roles/list-roles.component';
+import { RxjsLearningComponent } from './rxjs-learning/rxjs-learning.component';
 import { AddUserComponent } from './users/add-user/add-user.component';
 import { DeleteUserComponent } from './users/delete-user/delete-user.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
@@ -14,9 +15,10 @@ const routes: Routes = [
         {path:'',component:ListUsersComponent},
         {path: 'delete/:id',component: DeleteUserComponent},
         {path: 'edit/:id',component: EditUserComponent},
-        {path: 'view/:id',component: ViewUsersComponent}
+        {path: 'view/:id',component: ViewUsersComponent},
       ] 
-  }
+  },
+  { path:'rxjs-learning',component: RxjsLearningComponent}
   
 ];
 

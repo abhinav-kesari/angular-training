@@ -18,7 +18,7 @@ const routes: Routes = [
         {path: 'view/:id',component: ViewUsersComponent},
       ] 
   },
-  { path:'rxjs-learning',component: RxjsLearningComponent}
+  { path:'rxjs',component: RxjsLearningComponent}
   
 ];
 

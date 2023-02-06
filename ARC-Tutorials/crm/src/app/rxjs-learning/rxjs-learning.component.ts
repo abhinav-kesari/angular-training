@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { from, fromEvent, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-learning',
@@ -17,6 +17,15 @@ export class RxjsLearningComponent implements OnInit {
 
   studentObj = {id : 1,name : "Obke"}
   studentObjs$ : Observable<object> = of(this.studentObj);
+
+  studentFromList = ['Eya','Siya','Jax','Rocky'];
+  studentFrom$ : Observable<string> = from(this.studentFromList);
+
+  @ViewChild('validate')
+  validate1! : ElementRef;
+
+  @ViewChild('getlink')
+  getlink1! : ElementRef;
 
   constructor() { }
 
@@ -47,7 +56,7 @@ export class RxjsLearningComponent implements OnInit {
        this.agentName = data;
     }) */
 
-    // Ep -5 Of Operator
+    /* // Ep -5 Of Operator
     this.student$.subscribe(data=>{
       console.log(data);
     })
@@ -56,10 +65,37 @@ export class RxjsLearningComponent implements OnInit {
     })
     this.studentObjs$.subscribe(data=>{
       console.log(data);
+    }) */
+     
+  /*   // Ep -6 From Operator
+    this.studentFrom$.subscribe(data=>{
+      console.log(data);
     })
+ */
 
+    
+
+   /*    this.studentFrom$.subscribe(data=>{
+        console.log(data);
+      }) */
+  
 
   }
+ // Ep -8 FromEvent Operator
+     btnForFromEvent(){
+       const btnForFromEvents$ = fromEvent(this.validate1.nativeElement,'click'); 
+       btnForFromEvents$.subscribe(data=>{
+        console.log(data);
+       }) 
+     }
+     onMouseOver(){
+      const onMouserOver1$ = fromEvent(this.getlink1.nativeElement,'mouseover'); 
+      onMouserOver1$.subscribe(data=>{
+        console.log(data);
+      })
+       
+
+     } 
 
 }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { debounceTime, take, takeWhile } from 'rxjs';
+import { debounceTime, elementAt, first, from, last, take, takeLast, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -10,6 +10,9 @@ import { debounceTime, take, takeWhile } from 'rxjs';
 export class SearchComponent implements OnInit {
 
   searchForm! : FormGroup;
+  sports : string[] = ['cricket' , 'badminton','chess','tabletenis'];
+  sportsList$ = from(this.sports);
+
   constructor() { }
 
   ngOnInit(): void {
@@ -25,7 +28,16 @@ export class SearchComponent implements OnInit {
       debounceTime(2000)
     )
     .subscribe(data=>{
-      console.log(data);
+
+     this.sportsList$.pipe(
+     // takeLast(2),
+     // last(),
+     // first(),
+        elementAt(1)
+     ).subscribe(data2=>{
+       console.log(data  +" - " + data2);
+     })
+
     })
     
   }

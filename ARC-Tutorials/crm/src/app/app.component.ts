@@ -25,6 +25,6 @@ export class AppComponent implements AfterViewInit {
   console.log(this.contentList.length);
   console.log(this.contentList); */
   
-   console.log(this.views.nativeElement.innerHTM);
+  // console.log(this.views?.nativeElement.innerHTML);
   }
 }

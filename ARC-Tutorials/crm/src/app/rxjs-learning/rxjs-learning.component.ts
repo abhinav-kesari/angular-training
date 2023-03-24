@@ -1,36 +1,34 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { from, fromEvent, Observable, of } from 'rxjs';
+import { from, fromEvent, interval, Observable, of, take } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs-learning',
   templateUrl: './rxjs-learning.component.html',
-  styleUrls: ['./rxjs-learning.component.scss']
+  styleUrls: ['./rxjs-learning.component.scss'],
 })
 export class RxjsLearningComponent implements OnInit {
-
   agents!: Observable<string>;
   agentName!: string;
 
-  studentArray = ['Ram','Mark','Sita'];
-  student$ : Observable<string[]> = of(this.studentArray);
-  studentString$ : Observable<string> = of('Abhinav');
+  studentArray = ['Ram', 'Mark', 'Sita'];
+  student$: Observable<string[]> = of(this.studentArray);
+  studentString$: Observable<string> = of('Abhinav');
 
-  studentObj = {id : 1,name : "Obke"}
-  studentObjs$ : Observable<object> = of(this.studentObj);
+  studentObj = { id: 1, name: 'Obke' };
+  studentObjs$: Observable<object> = of(this.studentObj);
 
-  studentFromList = ['Eya','Siya','Jax','Rocky'];
-  studentFrom$ : Observable<string> = from(this.studentFromList);
+  studentFromList = ['Eya', 'Siya', 'Jax', 'Rocky'];
+  studentFrom$: Observable<string> = from(this.studentFromList);
 
   @ViewChild('validate')
-  validate1! : ElementRef;
+  validate1!: ElementRef;
 
   @ViewChild('getlink')
-  getlink1! : ElementRef;
+  getlink1!: ElementRef;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-     
     /*   Ep -3 Observable 
     this.agents = new Observable(
           function (observer) {
@@ -55,7 +53,6 @@ export class RxjsLearningComponent implements OnInit {
       console.log(data);
        this.agentName = data;
     }) */
-
     /* // Ep -5 Of Operator
     this.student$.subscribe(data=>{
       console.log(data);
@@ -66,37 +63,36 @@ export class RxjsLearningComponent implements OnInit {
     this.studentObjs$.subscribe(data=>{
       console.log(data);
     }) */
-     
-  /*   // Ep -6 From Operator
+    /*   // Ep -6 From Operator
     this.studentFrom$.subscribe(data=>{
       console.log(data);
     })
  */
-
-    
-
-   /*    this.studentFrom$.subscribe(data=>{
+    /*    this.studentFrom$.subscribe(data=>{
         console.log(data);
       }) */
-  
+    //}
+    // Ep -8 FromEvent Operator
+    // btnForFromEvent() {
+    //   const btnForFromEvents$ = fromEvent(this.validate1.nativeElement, 'click');
+    //   btnForFromEvents$.subscribe((data) => {
+    //     console.log(data);
+    //   });
+    // }
+    // onMouseOver() {
+    //   const onMouserOver1$ = fromEvent(this.getlink1.nativeElement, 'mouseover');
+    //   onMouserOver1$.subscribe((data) => {
+    //     console.log(data);
+    //   });
+    // }
 
-  }
- // Ep -8 FromEvent Operator
-     btnForFromEvent(){
-       const btnForFromEvents$ = fromEvent(this.validate1.nativeElement,'click'); 
-       btnForFromEvents$.subscribe(data=>{
-        console.log(data);
-       }) 
-     }
-     onMouseOver(){
-      const onMouserOver1$ = fromEvent(this.getlink1.nativeElement,'mouseover'); 
-      onMouserOver1$.subscribe(data=>{
-        console.log(data);
+    //9-Interval
+    this.studentFrom$.subscribe((data) => {
+      const seqNum$ = interval(2000);
+      const seqNum2$ = seqNum$.pipe(take(2));
+      seqNum2$.subscribe(seqNum1 =>{
+        console.log(data+" "+seqNum1);
       })
-       
-
-     } 
-
+    });
+  }
 }
-
-

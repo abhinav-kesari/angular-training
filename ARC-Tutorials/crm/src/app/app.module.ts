@@ -16,6 +16,7 @@ import { ContentProjectionComponent } from './content-projection/content-project
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { RxjsLearningComponent } from './rxjs-learning/rxjs-learning.component';
+import { SearchComponent } from './search/search.component';
 //import { MatTableModule } from '@angular/material/table';
 
 
@@ -24,6 +25,7 @@ import { RxjsLearningComponent } from './rxjs-learning/rxjs-learning.component';
     AppComponent,
     ContentProjectionComponent,
     RxjsLearningComponent,
+    SearchComponent,
    
   ],
   imports: [

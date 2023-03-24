@@ -19,7 +19,8 @@ export class SearchComponent implements OnInit {
 
     this.searchForm.get('name')?.valueChanges
     .pipe(
-      takeWhile((v)=>this.checkCondition(v)),
+      
+     // takeWhile((v)=>this.checkCondition(v)),
       //take(3),
       debounceTime(2000)
     )

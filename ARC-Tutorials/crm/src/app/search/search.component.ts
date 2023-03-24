@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { debounceTime } from 'rxjs';
+import { debounceTime, take, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -19,14 +19,18 @@ export class SearchComponent implements OnInit {
 
     this.searchForm.get('name')?.valueChanges
     .pipe(
+      takeWhile((v)=>this.checkCondition(v)),
+      //take(3),
       debounceTime(2000)
     )
     .subscribe(data=>{
       console.log(data);
     })
+    
   }
-
+  checkCondition(val: string){
+    return val.length > 6 ? false : true;
+  }
   readSearch(){
-
   }
 }

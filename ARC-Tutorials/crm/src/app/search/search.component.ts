@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { debounceTime, elementAt, first, from, last, take, takeLast, takeWhile } from 'rxjs';
+import { debounceTime, distinct, elementAt, filter, first, from, last, take, takeLast, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +10,7 @@ import { debounceTime, elementAt, first, from, last, take, takeLast, takeWhile }
 export class SearchComponent implements OnInit {
 
   searchForm! : FormGroup;
-  sports : string[] = ['cricket' , 'badminton','chess','tabletenis'];
+  sports : string[] = ['cricket' , 'badminton','chess','tabletenis','chess'];
   sportsList$ = from(this.sports);
 
   constructor() { }
@@ -22,9 +22,10 @@ export class SearchComponent implements OnInit {
 
     this.searchForm.get('name')?.valueChanges
     .pipe(
-      
+      // filter((v)=> this.checkCondition(v)),
      // takeWhile((v)=>this.checkCondition(v)),
       //take(3),
+      distinct(),
       debounceTime(2000)
     )
     .subscribe(data=>{
@@ -33,10 +34,12 @@ export class SearchComponent implements OnInit {
      // takeLast(2),
      // last(),
      // first(),
-        elementAt(1)
+     //   elementAt(1)
+     distinct()
      ).subscribe(data2=>{
-       console.log(data  +" - " + data2);
+        console.log(data  +" - " + data2 );
      })
+     //console.log(data)
 
     })
     

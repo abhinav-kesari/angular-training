@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { debounceTime, distinct, elementAt, filter, first, from, last, take, takeLast, takeWhile } from 'rxjs';
+import { combineLatest, debounceTime, distinct, elementAt, filter, first, from, interval, last, take, takeLast, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -42,6 +42,14 @@ export class SearchComponent implements OnInit {
      //console.log(data)
 
     })
+     //rxjs combinedLatest()
+    const x = interval (1000).pipe (take (5));  
+    const y = interval (200).pipe (take (5));
+    
+    combineLatest(x, y).subscribe(data=>{
+      console.log("Next- "+data)
+    });
+ 
     
   }
   checkCondition(val: string){

@@ -43,13 +43,20 @@ export class SearchComponent implements OnInit {
 
     })
      //rxjs combinedLatest()
-    const x = interval (1000).pipe (take (5));  
-    const y = interval (200).pipe (take (5));
+    const x = interval(1000).pipe(take(5));  
+    const y = interval(1000).pipe(take(5));
     
     combineLatest(x, y).subscribe(data=>{
-      console.log("Next- "+data)
+      console.log("Next - "+data)
     });
  
+     //rxjs forkJoin()
+     const x1 = interval (1000).pipe (take (5));  
+     const y1= interval (1000).pipe (take (5));
+     
+     combineLatest(x1, y1).subscribe(data=>{
+       console.log("forkJoin - "+data)
+     });
     
   }
   checkCondition(val: string){

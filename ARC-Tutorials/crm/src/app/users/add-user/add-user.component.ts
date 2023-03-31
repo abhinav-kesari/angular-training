@@ -35,6 +35,9 @@ export class AddUserComponent implements OnInit {
     })
   }
 
+  get s(){
+    return this.addUserForm.controls 
+  }
   submitForm(){
    this.contactsService.addUser(this.addUserForm.value).subscribe(data=>{
     console.log(data);

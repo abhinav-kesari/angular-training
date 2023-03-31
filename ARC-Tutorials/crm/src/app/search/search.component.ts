@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { combineLatest, debounceTime, distinct, elementAt, filter, first, from, interval, last, take, takeLast, takeWhile } from 'rxjs';
+import { combineLatest, debounceTime, distinct, elementAt, filter, first, forkJoin, from, interval, last, take, takeLast, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -54,7 +54,7 @@ export class SearchComponent implements OnInit {
      const x1 = interval (1000).pipe (take (5));  
      const y1= interval (1000).pipe (take (5));
      
-     combineLatest(x1, y1).subscribe(data=>{
+     forkJoin(x1, y1).subscribe(data=>{
        console.log("forkJoin - "+data)
      });
     

@@ -47,7 +47,33 @@
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tbody>
+          <tr
+            *ngFor="
+              let post of dataSource
+                | paginate
+                  : {
+                      itemsPerPage: tableSize,
+                      currentPage: page,
+                      totalItems: count
+                    };
+              let i = index
+            "
+          >
+            <th scope="row">{{ post.id }}</th>
+            <td>{{ post.name }}</td>
+          </tr>
+        </tbody>
       </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="onTableDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
   </mat-card-content>
 </div>
 

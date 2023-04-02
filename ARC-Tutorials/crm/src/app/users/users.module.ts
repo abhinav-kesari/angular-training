@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from "@angular/material/snack-bar";
 import {MatTableModule} from '@angular/material/table';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule ,
     ReactiveFormsModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    NgxPaginationModule
   ],exports:[ListUsersComponent],
   providers:[
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2000}}

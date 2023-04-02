@@ -18,6 +18,7 @@ import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/mater
 import { RxjsLearningComponent } from './rxjs-learning/rxjs-learning.component';
 import { SearchComponent } from './search/search.component';
 //import { MatTableModule } from '@angular/material/table';
+import { NgxPaginationModule } from "ngx-pagination";
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SearchComponent } from './search/search.component';
     MatSidenavModule,
     HttpClientModule,
     MatSnackBarModule,
+    NgxPaginationModule
   //  MatTableModule
   ],
   providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2000}}

@@ -25,15 +25,45 @@ export class ListUsersComponent implements OnInit {
 
   userName$: any;
  // userName$ : User[] = [];
+  POSTS: any;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 7;
+  tableSizes: any = [3, 6, 9, 12]
 
   constructor(private contactsService:ContactsService) { }
 
-  ngOnInit(): void {
-    this.contactsService.getusers().subscribe(data =>{
-      this.userName$ = data;  //for mat card 
-      this.dataSource = data; //for table
-    })
+  // ngOnInit(): void {
+  //   this.contactsService.getusers().subscribe(data =>{
+  //     this.userName$ = data;  //for mat card 
+  //     this.dataSource = data; //for table
+  //   })
+ // }
 
-  }
+ ngOnInit(): void {
+  this.fetchPosts();
+}
+fetchPosts(): void {
+  this.contactsService.getusers().subscribe(
+    (response) => {
+      this.userName$ = response;
+      this.dataSource = response;
+      console.log(response);
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+}
+
+onTableDataChange(event: any) {
+  this.page = event;
+  this.fetchPosts();
+}
+onTableSizeChange(event: any): void {
+  this.tableSize = event.target.value;
+  this.page = 1;
+  this.fetchPosts();
+}
 
 }
